@@ -12,7 +12,7 @@ partn.Name = "part"
 part.Parent = workspace
 
 local connection = part.Touched:Connect(function(hit)
-	print(hit.Name .. "touched the part")
+	print(hit.Name .. " touched the part")
 end)
 
 delilahJustCreatedASentientAnthropomorphicTissueBox:give(connection, "touchConnection")
