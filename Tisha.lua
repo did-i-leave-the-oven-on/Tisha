@@ -12,19 +12,19 @@ function Tisha.new()
   }, Tisha)
 end
 
-function Tisha.cleanup(task)
-  local this = typeof(task)
+function Tisha.cleanup(item)
+  local this = typeof(item)
 
   if this == "RBXScriptConnection" then
-    task:Disconnect()
+    item:Disconnect()
 
   elseif this == "thread" then
-    task.cancel(task)
+    task.cancel(item)
 
   elseif this == "table" then
     for _, method in ipairs({"Destroy", "destroy", "Disconnect"}) do
-      if typeof(task[method]) == "function" then
-        task[method](task)
+      if typeof(item[method]) == "function" then
+        item[method](item)
         return
       end
     end
